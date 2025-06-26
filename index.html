@@ -4,114 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — Ялта</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: -apple-system, sans-serif;
+      font-family: 'Rubik', sans-serif;
       background: #fafafa;
       color: #222;
+      scroll-behavior: smooth;
     }
-    header {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-    }
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-    header .overlay {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-    }
-    header h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-    header p {
-      font-size: 24px;
-      margin-top: 10px;
-    }
-
     nav {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       background: rgba(255,255,255,0.9);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
-      z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 12px 24px;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
     }
-    nav .logo {
-      font-weight: bold;
+    nav h1 {
       font-size: 20px;
+      margin: 0;
     }
-    nav .menu {
-      display: flex;
-      gap: 15px;
-    }
-    nav .menu a {
+    nav a {
+      margin-left: 20px;
       text-decoration: none;
-      color: #333;
-      font-size: 14px;
+      color: #222;
+      font-weight: 500;
     }
-
-    .hamburger {
+    .menu {
       display: none;
-      flex-direction: column;
-      cursor: pointer;
     }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #333;
-      margin: 4px 0;
-    }
-
-    @media (max-width: 768px) {
-      nav .menu {
+    @media (max-width: 700px) {
+      .menu {
+        display: block;
+        font-size: 24px;
+      }
+      .nav-links {
         display: none;
         flex-direction: column;
-        background: white;
         position: absolute;
-        top: 50px;
-        left: 0;
+        top: 56px;
+        right: 0;
+        background: white;
         width: 100%;
-        border-top: 1px solid #ddd;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       }
-      nav .menu.active {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
+      .nav-links a {
+        margin: 10px 0;
       }
     }
 
+    header {
+      height: 100vh;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    header .overlay {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+    }
     section {
       max-width: 900px;
       margin: auto;
       padding: 60px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    section:nth-child(even) {
+      background: #fff;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     h2 {
       font-size: 28px;
@@ -132,20 +124,21 @@
       padding: 40px;
       border-radius: 12px;
     }
-    .map {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 10px;
-    }
     .gallery {
       display: flex;
       overflow-x: auto;
-      gap: 12px;
-      padding: 0 20px;
+      gap: 10px;
+      scroll-snap-type: x mandatory;
     }
     .gallery img {
-      max-height: 240px;
+      height: 200px;
+      border-radius: 10px;
+      scroll-snap-align: center;
+    }
+    .map {
+      width: 100%;
+      height: 400px;
+      border: 0;
       border-radius: 10px;
     }
     .buttons {
@@ -156,8 +149,8 @@
       display: inline-block;
       padding: 12px 24px;
       border-radius: 8px;
-      font-size: 16px;
       margin: 10px;
+      font-size: 16px;
       text-decoration: none;
     }
     .whatsapp {
@@ -168,7 +161,27 @@
       border: 2px solid #1e90ff;
       color: #1e90ff;
     }
-    .footer {
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .review {
+      border-left: 4px solid #ccc;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .features div {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
       background: #eee;
       text-align: center;
       padding: 20px;
@@ -179,23 +192,20 @@
 <body>
 
 <nav>
-  <div class="logo">Дом • Очаг</div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
-  <div class="menu" id="menu">
+  <h1>Дом • Очаг</h1>
+  <div class="menu" onclick="toggleMenu()">☰</div>
+  <div class="nav-links" id="navLinks">
     <a href="#about">О доме</a>
-    <a href="#space">Пространство</a>
-    <a href="#area">Территория</a>
     <a href="#pool">Бассейн</a>
     <a href="#location">Локация</a>
-    <a href="#map">Карта</a>
+    <a href="#gallery">Фото</a>
     <a href="#reviews">Отзывы</a>
+    <a href="#contact">Контакты</a>
   </div>
 </nav>
 
 <header>
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop>
     <source src="6eb9646a-388a-4602-aa8f-f29aa4861489.mov" type="video/mp4" />
   </video>
   <div class="overlay">
@@ -206,25 +216,15 @@
 
 <section id="about">
   <h2>О доме</h2>
-  <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном с подогревом, сауной, застеклённой беседкой с зоной барбекю. Только для гостей.</p>
-</section>
-
-<section id="space">
-  <h2>Пространство</h2>
+  <p>
+    Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном, 
+    сауной (опция), застекленной беседкой с зоной барбекю. Только для гостей — без посторонних.
+  </p>
   <ul>
     <li>4 комнаты (3 изолированные)</li>
-    <li>Двуспальные кровати 160×200, санузлы, Wi-Fi</li>
-    <li>Панорамные виды на Ялту и горы</li>
-    <li>Кухня в застеклённой беседке: плита, чайник, холодильник</li>
-  </ul>
-</section>
-
-<section id="area">
-  <h2>Территория</h2>
-  <ul>
-    <li>Крытый подогреваемый бассейн</li>
-    <li>Ландшафтный дизайн, барбекю</li>
-    <li>Закрытая парковка, видеонаблюдение</li>
+    <li>Двуспальные кровати, шкаф, Wi-Fi, ТВ</li>
+    <li>Кухня с посудой и техникой</li>
+    <li>Панорамные виды на горы и город</li>
   </ul>
 </section>
 
@@ -235,72 +235,77 @@
   </div>
 </section>
 
-<section id="location">
-  <h2>Локация</h2>
-  <p>Ялта, ул. Пролетарская, 8В — до центра 2 км, рядом водопады, тропы, озеро.</p>
+<section>
+  <h2>Почему выбирают нас</h2>
+  <div class="features">
+    <div>✅ Простор — до 8 гостей</div>
+    <div>🌿 Уединение и тишина</div>
+    <div>🔥 Сауна и BBQ-зона</div>
+    <div>🚘 Парковка и видеонаблюдение</div>
+    <div>🌅 Вид на горы и город</div>
+    <div>📶 Быстрый Wi-Fi и Smart TV</div>
+  </div>
 </section>
 
-<section id="map">
-  <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.166924%2C44.519481&z=17&l=map&pt=34.166924,44.519481,pm2rdm"></iframe>
+<section id="location">
+  <h2>Локация</h2>
+  <p>г. Ялта, ул. Пролетарская, 8В</p>
+  <p>До центра и пляжа — 2 км</p>
+</section>
+
+<section>
+  <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.166924%2C44.519481&z=16&pt=34.166924,44.519481,pm2rdm"></iframe>
+</section>
+
+<section>
+  <h2>Важно знать</h2>
+  <ul>
+    <li>Только для тихого семейного отдыха</li>
+    <li>Макс. 8 гостей (включая детей)</li>
+    <li>Без вечеринок и шумных компаний</li>
+    <li>Заезд: с 14:00, выезд до 11:00</li>
+    <li>Бронирование — по предоплате</li>
+  </ul>
 </section>
 
 <section id="reviews">
   <h2>Отзывы гостей</h2>
-  <details>
-    <summary style="cursor: pointer; font-size: 18px; color: #1e90ff;">Показать все отзывы</summary>
-    <div style="margin-top: 20px;">
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Идеальное место для отдыха! Уютно, чисто, красиво.</p>
-      </div>
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Отличный дом, особенно порадовал бассейн и вид на горы.</p>
-      </div>
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Тихо, просторно, доброжелательные хозяева. Всё на уровне!</p>
-      </div>
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★☆</p>
-        <p style="margin: 5px 0;">Чуть не хватило микроволновки, но в остальном всё супер.</p>
-      </div>
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Вернёмся сюда снова! Спасибо за атмосферу и комфорт.</p>
-      </div>
-      <div style="margin-bottom: 20px;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Были с детьми — всем хватило места, отдых прошёл отлично.</p>
-      </div>
-      <div style="margin-bottom: 0;">
-        <p style="margin: 0;">★★★★★</p>
-        <p style="margin: 5px 0;">Крутая локация — 5 минут и в центре Ялты.</p>
-      </div>
-    </div>
+  <details open>
+    <summary>Показать все</summary>
+    <div class="review">★★★★★ «Идеальное место для отдыха! Уютно, чисто, красиво»</div>
+    <div class="review">★★★★★ «Отличный дом, особенно порадовал бассейн и вид на горы»</div>
+    <div class="review">★★★★★ «Тихо, просторно, доброжелательные хозяева»</div>
+    <div class="review">★★★★☆ «Чуть не хватило микроволновки, но в остальном всё супер»</div>
+    <div class="review">★★★★★ «Вернёмся сюда снова! Спасибо за атмосферу»</div>
+    <div class="review">★★★★★ «Были с детьми — всем хватило места, отдых прошёл отлично»</div>
+    <div class="review">★★★★★ «Крутая локация — 5 минут и в центре Ялты»</div>
   </details>
 </section>
 
-<section class="gallery">
-  <img src="Photo3.JPG" alt="Фото">
-  <img src="Photo4.JPG" alt="Фото">
-  <img src="Photo5.JPG" alt="Фото">
-  <img src="Photo6.JPG" alt="Фото">
-  <img src="Photo7.JPG" alt="Фото">
+<section id="gallery" class="gallery">
+  <img src="Photo3.JPG" alt="">
+  <img src="Photo4.JPG" alt="">
+  <img src="Photo5.JPG" alt="">
+  <img src="Photo6.JPG" alt="">
+  <img src="Photo7.JPG" alt="">
+  <img src="Photo8.JPG" alt="">
+  <img src="Photo9.JPG" alt="">
+  <img src="Photo10.JPG" alt="">
 </section>
 
-<section class="buttons">
+<section class="buttons" id="contact">
   <a href="https://wa.me/79782823254" class="whatsapp">Написать в WhatsApp</a>
-  <a href="https://calendar.yandex.ru/" class="calendar">Посмотреть даты</a>
+  <a href="https://calendar.yandex.ru/" class="calendar">Свободные даты</a>
 </section>
 
-<footer class="footer">
-  © 2025 Дом • Очаг | Ялта, ул. Пролетарская, 8В | +7 978 282-32-54
+<footer>
+  © 2025 Дом • Очаг | Ялта, Пролетарская 8В | +7 978 282-32-54
 </footer>
 
 <script>
   function toggleMenu() {
-    document.getElementById('menu').classList.toggle('active');
+    const links = document.getElementById("navLinks");
+    links.style.display = links.style.display === "flex" ? "none" : "flex";
   }
 </script>
 
