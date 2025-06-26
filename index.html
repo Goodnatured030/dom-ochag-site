@@ -2,47 +2,103 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — аренда в Ялте</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: -apple-system, sans-serif;
       background: #f9f9f9;
       color: #222;
+      line-height: 1.6;
     }
     header {
       background: url('Photo1.JPG') center/cover no-repeat;
-      height: 100vh;
-      color: white;
+      height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      flex-direction: column;
+      color: white;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.4);
+    }
+    header .hero-content {
+      position: relative;
+      z-index: 1;
     }
     header h1 {
       font-size: 3em;
       margin: 0;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
     header p {
-      font-size: 1.3em;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    header .btn {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 12px 24px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    nav.menu {
+      display: flex;
+      justify-content: center;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #eee;
+    }
+    nav.menu a {
+      padding: 1em;
+      color: #444;
+      text-decoration: none;
     }
     section {
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
-    h2 {
-      margin-top: 0;
+    #reasons {
+      background: #fff;
+    }
+    #reasons h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+    .reason-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .reason-card {
+      flex: 1 1 200px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .reason-card .icon {
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
     .slider {
       display: flex;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
       gap: 10px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
     .slider img {
       width: 100%;
@@ -50,22 +106,6 @@
       border-radius: 8px;
       scroll-snap-align: start;
       flex-shrink: 0;
-    }
-    .buttons a {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .buttons .whatsapp {
-      background: #25D366;
-      color: white;
-    }
-    .buttons .calendar {
-      border: 2px solid #0077ff;
-      color: #0077ff;
     }
     .map {
       width: 100%;
@@ -75,96 +115,83 @@
       margin-top: 20px;
     }
     details {
-      margin-top: 10px;
-    }
-    .review {
       background: #fff;
-      border-radius: 8px;
       padding: 15px;
       margin-bottom: 10px;
+      border-radius: 6px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      outline: none;
+    }
+    .buttons {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .buttons .btn {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 12px 24px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .buttons .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .buttons .calendar {
+      border: 2px solid #0077ff;
+      color: #0077ff;
+      background: white;
     }
     footer {
       text-align: center;
-      font-size: 0.9em;
       padding: 20px;
-      color: #777;
+      background: #eee;
+      font-size: 0.9em;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      .reason-cards { flex-direction: column; }
+      .slider img { max-width: 80%; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Дом • Очаг</h1>
-    <p>Дом с крытым бассейном и сауной в Ялте</p>
+    <div class="hero-content">
+      <h1>Дом • Очаг</h1>
+      <p>Семейный отдых в Ялте с бассейном и сауной</p>
+      <a href="#booking" class="btn">Узнать свободные даты</a>
+    </div>
   </header>
 
-  <section>
+  <nav class="menu">
+    <a href="#about">О доме</a>
+    <a href="#gallery">Фото</a>
+    <a href="#location">Локация</a>
+    <a href="#reasons">Почему мы</a>
+    <a href="#reviews">Отзывы</a>
+  </nav>
+
+  <section id="about">
     <h2>🌿 О доме</h2>
-    <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном с подогревом, сауной (опция), застеклённой беседкой с барбекю-зоной.</p>
-  </section>
-
-  <section>
-    <h2>🛏 Пространство</h2>
+    <p>Автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым подогреваемым бассейном, сауной (опция) и застеклённой беседкой с барбекю-зоной.</p>
     <ul>
-      <li>4 комнаты, из них 3 — изолированные</li>
-      <li>Двуспальные кровати 160×200, санузлы, кондиционер, ТВ, Wi-Fi</li>
-      <li>Панорамные виды на Ялту и горы</li>
-      <li>Кухня в застеклённой беседке: плита, посуда, чайник, холодильник, микроволновка</li>
+      <li>🛏 4 комнаты, 3 изолированные</li>
+      <li>🌄 Панорамный вид на Ялту и горы</li>
+      <li>📶 Wi-Fi, ТВ, кондиционеры</li>
+      <li>🍽 Кухня с плитой, посудой и техникой</li>
     </ul>
   </section>
 
-  <section>
-    <h2>🏡 Территория</h2>
-    <ul>
-      <li>Крытый подогреваемый бассейн</li>
-      <li>Барбекю-зона и беседка</li>
-      <li>Закрытая парковка (до 3 авто)</li>
-      <li>Видеонаблюдение</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>📍 Локация</h2>
-    <p>г. Ялта, ул. Пролетарская, 8В — до центра и пляжа 2 км (5 мин на авто). Поблизости — озеро, водопады, лес, тропы.</p>
-  </section>
-
-  <section>
-    <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.180219%2C44.497002&z=16&text=Ялта%2C%20ул.%20Пролетарская%2C%208В" allowfullscreen></iframe>
-  </section>
-
-  <section>
-    <h2>❗ Важно знать</h2>
-    <ul>
-      <li>Только для спокойного семейного отдыха</li>
-      <li>Максимум 8 гостей (включая детей с 0 лет)</li>
-      <li>Дом не сдаётся для вечеринок</li>
-      <li>Заезд с 14:00, выезд до 11:00</li>
-      <li>Бронирование только по предоплате</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>⭐ Отзывы гостей</h2>
-    <details open>
-      <summary>1. Алексей — ★★★★★</summary>
-      <div class="review">Отдых получился просто замечательным. Бассейн — топ!</div>
-    </details>
-    <details>
-      <summary>2. Ольга — ★★★★★</summary>
-      <div class="review">Идеальный дом для семьи. Всё чисто и уютно.</div>
-    </details>
-    <details>
-      <summary>3. Инна — ★★★★★</summary>
-      <div class="review">Вернёмся сюда ещё раз. Отличная локация и условия.</div>
-    </details>
-    <details>
-      <summary>4. Юрий — ★★★★★</summary>
-      <div class="review">Очень комфортный отдых. Хозяева — молодцы!</div>
-    </details>
-  </section>
-
-  <section>
-    <h2>📷 Галерея</h2>
+  <section id="gallery">
+    <h2>📸 Галерея</h2>
     <div class="slider">
       <img src="Photo2.JPG" alt="Фото 2">
       <img src="Photo3.JPG" alt="Фото 3">
@@ -178,13 +205,77 @@
     </div>
   </section>
 
-  <section class="buttons">
-    <a class="whatsapp" href="https://wa.me/79782823254" target="_blank">Написать в WhatsApp</a>
-    <a class="calendar" href="https://calendar.yandex.ru/" target="_blank">Посмотреть даты</a>
+  <section id="location">
+    <h2>📍 Локация</h2>
+    <p>г. Ялта, ул. Пролетарская, 8В — до центра и пляжа 2 км (5 мин на авто). Поблизости — ущелья, водопады, лес.</p>
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.180219%2C44.497002&z=16&pt=34.180219,44.497002,pm2rdm" allowfullscreen></iframe>
+  </section>
+
+  <section id="reasons">
+    <h2>✅ Почему выбирают нас</h2>
+    <div class="reason-cards">
+      <div class="reason-card">
+        <div class="icon">🏡</div>
+        <p><strong>Своя территория</strong></p>
+        <p>Полная приватность без посторонних.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🌊</div>
+        <p><strong>Крытый бассейн</strong></p>
+        <p>Подогрев и подсветка.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">🔥</div>
+        <p><strong>Сауна</strong></p>
+        <p>Опция для полного расслабления.</p>
+      </div>
+      <div class="reason-card">
+        <div class="icon">⛰️</div>
+        <p><strong>Вид на горы</strong></p>
+        <p>Панорама прямо из окон.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="important">
+    <h2>❗ Важно знать</h2>
+    <ul>
+      <li>🏡 Только для тихого семейного отдыха</li>
+      <li>👨‍👩‍👧‍👦 До 8 гостей (включая детей)</li>
+      <li>🚫 Нет вечеринок и шумных компаний</li>
+      <li>🕒 Заезд с 14:00, выезд до 11:00</li>
+      <li>💰 Бронирование по предоплате</li>
+    </ul>
+  </section>
+
+  <section id="reviews">
+    <h2>🌟 Отзывы гостей</h2>
+    <details open>
+      <summary>1. Алексей — ★★★★★</summary>
+      <p>Отдых получился замечательным. Бассейн — топ!</p>
+    </details>
+    <details>
+      <summary>2. Ольга — ★★★★★</summary>
+      <p>Чисто, уютно, тишина. Идеально для семьи.</p>
+    </details>
+    <details>
+      <summary>3. Инна — ★★★★★</summary>
+      <p>Вернусь ещё раз. Отличная локация и условия.</p>
+    </details>
+    <details>
+      <summary>4. Юрий — ★★★★★</summary>
+      <p>Очень комфортно. Хозяева — молодцы!</p>
+    </details>
+  </section>
+
+  <section id="booking" class="buttons">
+    <a href="https://wa.me/79782823254" class="btn whatsapp">Написать в WhatsApp</a>
+    <a href="https://calendar.yandex.ru/" class="btn calendar">Посмотреть даты</a>
   </section>
 
   <footer>
     © 2025 Дом • Очаг | Ялта, Крым | +7 978 282-32-54
   </footer>
+
 </body>
 </html>
