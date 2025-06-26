@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — Ялта</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       margin: 0;
       font-family: -apple-system, sans-serif;
@@ -19,30 +16,37 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: white;
-      border-bottom: 1px solid #ddd;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
       z-index: 1000;
     }
     nav ul {
       margin: 0;
-      padding: 10px 20px;
+      padding: 14px 20px;
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      overflow-x: auto;
+      gap: 24px;
+      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
-      color: #222;
-      font-weight: bold;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #1e90ff;
     }
     header {
       background: url('Photo1.JPG') center/cover no-repeat;
-      padding: 160px 20px;
+      padding: 160px 20px 120px;
       text-align: center;
       color: white;
-      margin-top: 60px;
     }
     header h1 {
       font-size: 48px;
@@ -178,7 +182,7 @@
   </ul>
 </section>
 
-<section class="highlight" id="pool">
+<section id="pool" class="highlight">
   <div class="overlay">
     <h2>🌊 Крытый бассейн</h2>
     <p>Подогрев и подсветка.</p>
