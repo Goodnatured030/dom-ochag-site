@@ -5,112 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — Ялта</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, sans-serif;
       background: #fafafa;
       color: #222;
+      scroll-behavior: smooth;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px;
+      z-index: 999;
+      font-size: 14px;
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: #444;
     }
     header {
-      background: url('6eb9646a-388a-4602-aa8f-f29aa4861489.mov') center/cover no-repeat;
-      padding: 160px 20px;
-      text-align: center;
+      position: relative;
+      height: 90vh;
       color: white;
+    }
+    header video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    header .content {
+      position: relative;
+      padding-top: 140px;
+      text-align: center;
     }
     header h1 {
       font-size: 48px;
-      margin: 0;
+      margin-bottom: 10px;
     }
     header p {
       font-size: 24px;
-      margin-top: 10px;
     }
-
-    nav {
-      background: white;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    nav .container {
-      max-width: 960px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
-    nav .logo {
-      font-weight: bold;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      margin-left: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #222;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background: #222;
-      margin: 4px 0;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 50px;
-        right: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
     section {
       max-width: 900px;
       margin: auto;
       padding: 60px 20px;
     }
     h2 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
     }
     .gallery {
       display: flex;
       overflow-x: auto;
       gap: 12px;
+      padding-bottom: 10px;
     }
     .gallery img {
       max-height: 240px;
-      border-radius: 12px;
+      border-radius: 10px;
     }
     .map {
       width: 100%;
       height: 400px;
-      border: 0;
+      border: none;
       border-radius: 12px;
     }
     .buttons {
@@ -133,15 +104,15 @@
       border: 2px solid #1e90ff;
       color: #1e90ff;
     }
-    details summary {
-      cursor: pointer;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
     .review {
       border-left: 4px solid #ccc;
       padding-left: 10px;
       margin-bottom: 15px;
+    }
+    details summary {
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 10px;
     }
     .footer {
       background: #eee;
@@ -149,39 +120,41 @@
       padding: 20px;
       font-size: 14px;
     }
+    #important {
+      background: #fffbe6;
+      border-left: 4px solid #f4c542;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="container">
-    <div class="logo">Дом • Очаг</div>
-    <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      <div></div><div></div><div></div>
-    </div>
-    <ul>
-      <li><a href="#about">О доме</a></li>
-      <li><a href="#space">Пространство</a></li>
-      <li><a href="#area">Территория</a></li>
-      <li><a href="#location">Локация</a></li>
-      <li><a href="#important">Важно</a></li>
-      <li><a href="#reviews">Отзывы</a></li>
-    </ul>
-  </div>
+  <a href="#about">🏡 О доме</a>
+  <a href="#space">🛏 Пространство</a>
+  <a href="#area">🌿 Территория</a>
+  <a href="#location">📍 Локация</a>
+  <a href="#important">⚠️ Важно</a>
+  <a href="#reviews">💬 Отзывы</a>
 </nav>
 
 <header>
-  <h1>Дом • Очаг</h1>
-  <p>Коттедж для семейного отдыха в Ялте</p>
+  <video autoplay muted loop playsinline>
+    <source src="6eb9646a-388a-4602-aa8f-f29aa4861489.mov" type="video/mp4" />
+  </video>
+  <div class="content">
+    <h1>Дом • Очаг</h1>
+    <p>Коттедж для семейного отдыха в Ялте</p>
+  </div>
 </header>
 
 <section id="about">
-  <h2>О доме</h2>
+  <h2>🏡 О доме</h2>
   <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном, который подогревается в холодное время года, сауной (опция), застекленной беседкой с раздвижными окнами и зоной барбекю. Только для гостей — без посторонних.</p>
 </section>
 
 <section id="space">
-  <h2>Пространство</h2>
+  <h2>🛏 Пространство</h2>
   <ul>
     <li>4 комнаты, из них 3 — изолированные</li>
     <li>В каждой: двуспальная кровать 160×200, шкаф, комод, тумбочки, санузел, кондиционер, ТВ, Wi-Fi</li>
@@ -191,7 +164,7 @@
 </section>
 
 <section id="area">
-  <h2>Территория</h2>
+  <h2>🌿 Территория</h2>
   <ul>
     <li>Крытый подогреваемый бассейн</li>
     <li>Ландшафтный дизайн</li>
@@ -202,7 +175,7 @@
 </section>
 
 <section id="location">
-  <h2>Локация</h2>
+  <h2>📍 Локация</h2>
   <p>Ялта, ул. Пролетарская, 8В</p>
   <p>До центра и пляжа — 2 км, 5 минут на авто</p>
   <p>Поблизости — ущелья, озеро, водопады, лес и тропы</p>
@@ -213,7 +186,7 @@
 </section>
 
 <section id="important">
-  <h2>Важно знать</h2>
+  <h2>⚠️ Важно знать</h2>
   <ul>
     <li>Только для тихого семейного отдыха</li>
     <li>Максимум — 8 гостей (включая детей с 0 лет)</li>
@@ -225,7 +198,7 @@
 </section>
 
 <section id="reviews">
-  <h2>Отзывы гостей</h2>
+  <h2>💬 Отзывы гостей</h2>
   <details open>
     <summary>Показать отзывы</summary>
     <div class="review">★★★★★ «Идеальное место для отдыха! Уютно, чисто, красиво»</div>
@@ -239,14 +212,14 @@
 </section>
 
 <section class="gallery">
-  <img src="Photo3.JPG" alt="Галерея 1">
-  <img src="Photo4.JPG" alt="Галерея 2">
-  <img src="Photo5.JPG" alt="Галерея 3">
-  <img src="Photo6.JPG" alt="Галерея 4">
-  <img src="Photo7.JPG" alt="Галерея 5">
-  <img src="Photo8.JPG" alt="Галерея 6">
-  <img src="Photo9.JPG" alt="Галерея 7">
-  <img src="Photo10.JPG" alt="Галерея 8">
+  <img src="Photo3.JPG" alt="Фото 3" />
+  <img src="Photo4.JPG" alt="Фото 4" />
+  <img src="Photo5.JPG" alt="Фото 5" />
+  <img src="Photo6.JPG" alt="Фото 6" />
+  <img src="Photo7.JPG" alt="Фото 7" />
+  <img src="Photo8.JPG" alt="Фото 8" />
+  <img src="Photo9.JPG" alt="Фото 9" />
+  <img src="Photo10.JPG" alt="Фото 10" />
 </section>
 
 <section class="buttons">
@@ -257,13 +230,6 @@
 <footer class="footer">
   © 2025 Дом • Очаг | Ялта, ул. Пролетарская, 8В | +7 978 282-32-54
 </footer>
-
-<script>
-  // Мобильное меню открытие/закрытие
-  document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('nav ul').classList.toggle('show');
-  });
-</script>
 
 </body>
 </html>
