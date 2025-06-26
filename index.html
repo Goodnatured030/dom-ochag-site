@@ -5,17 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — Ялта</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: -apple-system, sans-serif;
       background: #fafafa;
       color: #222;
     }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+    nav ul {
+      margin: 0;
+      padding: 10px 20px;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      overflow-x: auto;
+    }
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+    }
     header {
-      background: url('6eb9646a-388a-4602-aa8f-f29aa4861489.mov') center/cover no-repeat;
+      background: url('Photo1.JPG') center/cover no-repeat;
       padding: 160px 20px;
       text-align: center;
       color: white;
+      margin-top: 60px;
     }
     header h1 {
       font-size: 48px;
@@ -101,12 +128,27 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <li><a href="#about">О доме</a></li>
+    <li><a href="#space">Пространство</a></li>
+    <li><a href="#territory">Территория</a></li>
+    <li><a href="#pool">Бассейн</a></li>
+    <li><a href="#location">Локация</a></li>
+    <li><a href="#map">Карта</a></li>
+    <li><a href="#rules">Важно</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="#gallery">Фото</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
 <header>
   <h1>Дом • Очаг</h1>
   <p>Коттедж для семейного отдыха в Ялте</p>
 </header>
 
-<section>
+<section id="about">
   <h2>О доме</h2>
   <p>
     Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном, 
@@ -115,7 +157,7 @@
   </p>
 </section>
 
-<section>
+<section id="space">
   <h2>Пространство</h2>
   <ul>
     <li>4 комнаты, из них 3 — изолированные</li>
@@ -125,7 +167,7 @@
   </ul>
 </section>
 
-<section>
+<section id="territory">
   <h2>Территория</h2>
   <ul>
     <li>Крытый подогреваемый бассейн</li>
@@ -136,25 +178,25 @@
   </ul>
 </section>
 
-<section class="highlight">
+<section class="highlight" id="pool">
   <div class="overlay">
     <h2>🌊 Крытый бассейн</h2>
     <p>Подогрев и подсветка.</p>
   </div>
 </section>
 
-<section>
+<section id="location">
   <h2>Локация</h2>
   <p>Ялта, ул. Пролетарская, 8В</p>
   <p>До центра и пляжа — 2 км, 5 минут на авто</p>
   <p>Поблизости — ущелья, озеро, водопады, лес и тропы</p>
 </section>
 
-<section>
+<section id="map">
   <iframe class="map" src="https://maps.google.com/maps?q=44.519470,34.166955&z=16&output=embed"></iframe>
 </section>
 
-<section>
+<section id="rules">
   <h2>Важно знать</h2>
   <ul>
     <li>Только для тихого семейного отдыха</li>
@@ -166,7 +208,7 @@
   </ul>
 </section>
 
-<section>
+<section id="reviews">
   <h2>Отзывы гостей</h2>
   <details open>
     <summary>Показать отзывы</summary>
@@ -180,7 +222,7 @@
   </details>
 </section>
 
-<section class="gallery">
+<section id="gallery" class="gallery">
   <img src="Photo3.JPG" alt="Галерея 1">
   <img src="Photo4.JPG" alt="Галерея 2">
   <img src="Photo5.JPG" alt="Галерея 3">
@@ -191,7 +233,7 @@
   <img src="Photo10.JPG" alt="Галерея 8">
 </section>
 
-<section class="buttons">
+<section id="contact" class="buttons">
   <a href="https://wa.me/79782823254" class="whatsapp">Написать в WhatsApp</a>
   <a href="https://calendar.yandex.ru/" class="calendar">Посмотреть даты</a>
 </section>
