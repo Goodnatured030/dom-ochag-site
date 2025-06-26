@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Дом • Очаг</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, sans-serif;
+      margin: 0;
       background: #fafafa;
       color: #222;
-      margin: 0;
-      padding: 0;
       line-height: 1.6;
     }
-    header {
-      background: white;
-      padding: 2rem 1rem;
+    .cover {
+      background: url('photo1.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
       text-align: center;
-      border-bottom: 1px solid #ddd;
+      padding: 2rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+    .cover h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
     section {
       max-width: 800px;
@@ -51,6 +55,16 @@
       border: 2px solid #007bff;
       color: #007bff;
     }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
     iframe {
       margin-top: 1rem;
       border-radius: 12px;
@@ -69,10 +83,12 @@
 </head>
 <body>
 
-<header>
-  <h1>Дом • Очаг</h1>
-  <p>Уютный дом с бассейном и сауной в Ялте</p>
-</header>
+<div class="cover">
+  <div>
+    <h1>Дом • Очаг</h1>
+    <p>Уютный дом с бассейном и сауной в Ялте</p>
+  </div>
+</div>
 
 <section>
   <p><strong>Для спокойного семейного отдыха</strong></p>
@@ -120,6 +136,19 @@
   <div class="buttons">
     <a class="whatsapp" href="https://wa.me/79782823254" target="_blank">WhatsApp</a>
     <a class="calendar" href="https://calendar.yandex.ru/" target="_blank">Посмотреть даты</a>
+  </div>
+
+  <h2>🏞 Галерея</h2>
+  <div class="gallery">
+    <img src="photo2.jpg" alt="Фото 2">
+    <img src="photo3.jpg" alt="Фото 3">
+    <img src="photo4.jpg" alt="Фото 4">
+    <img src="photo5.jpg" alt="Фото 5">
+    <img src="photo6.jpg" alt="Фото 6">
+    <img src="photo7.jpg" alt="Фото 7">
+    <img src="photo8.jpg" alt="Фото 8">
+    <img src="photo9.jpg" alt="Фото 9">
+    <img src="photo10.jpg" alt="Фото 10">
   </div>
 
   <h2>📌 На карте</h2>
