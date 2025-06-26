@@ -4,45 +4,170 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Дом • Очаг</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; padding:0; font-family:-apple-system, sans-serif; background:#fafafa; color:#222; }
-    header { text-align:center; padding:2rem 1rem; background:#fff; border-bottom:1px solid #ddd; }
-    h1 { margin:0; font-size:2.2rem; }
-    p.subtitle { margin:.5rem 0 0; color:#555; font-size:1rem; }
-    section { max-width:800px; margin:auto; padding:1rem; }
-    .gallery { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .gallery img { width:100%; border-radius:6px; object-fit:cover; }
-    .buttons { text-align:center; margin:2rem 0; }
-    .buttons a { display:inline-block; margin:.5rem 1rem; padding:.8rem 1.5rem; text-decoration:none; font-weight:600; border-radius:4px; }
-    .whatsapp { background:#25D366; color:#fff; }
-    .calendar { background:#fff; color:#3366cc; border:2px solid #3366cc; }
-    footer { text-align:center; padding:1rem; font-size:.85rem; color:#888; }
+    :root {
+      --color-bg: #fafafa;
+      --color-primary: #3366cc;
+      --color-accent: #25d366;
+      --font-body: 'Inter', sans-serif;
+    }
+    * {box-sizing: border-box;}
+    body {
+      margin: 0; padding: 0;
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      position: relative;
+      background: url('Photo1.JPG') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    header h1, header p {
+      position: relative;
+      color: #fff;
+      margin: 0;
+      padding: 0 1rem;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin-top: .5rem;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    section {
+      max-width: 900px;
+      margin: -4rem auto 2rem;
+      background: #fff;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .intro {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #555;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 0;
+      padding-bottom: 66%;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .buttons a {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      font-weight: 600;
+      padding: .8rem 1.2rem;
+      border-radius: 4px;
+      transition: opacity .2s;
+    }
+    .buttons a:hover { opacity: .85; }
+    .whatsapp {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .calendar {
+      background: #fff;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    .buttons svg {
+      width: 1.2em; height: 1.2em;
+      fill: currentColor;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: .85rem;
+      color: #777;
+    }
+    @media (max-width: 600px) {
+      header { height: 40vh; }
+      header h1 { font-size: 2rem; }
+      section { margin-top: -2rem; padding: 1.5rem; }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Дом • Очаг</h1>
-    <p class="subtitle">Уютный семейный дом на ЮБК, Крым — сдаётся посуточно</p>
-  </header>
-  <section>
-    <p>2-й этаж частного дома: 3 спальни, кухня, санузел, Wi-Fi, бассейн, терраса и зелёный двор. До моря — 10 минут пешком. Идеально для тихого семейного отдыха.</p>
-    <div class="gallery">
-      <img src="photo1.JPG" alt="Фото 1">
-      <img src="photo2.jpg" alt="Фото 2">
-      <img src="photo3.jpg" alt="Фото 3">
-      <img src="photo4.jpg" alt="Фото 4">
-      <img src="photo5.jpg" alt="Фото 5">
-      <img src="photo6.jpg" alt="Фото 6">
-      <img src="photo7.jpg" alt="Фото 7">
-      <img src="photo8.jpg" alt="Фото 8">
-      <img src="photo9.jpg" alt="Фото 9">
-      <img src="photo10.jpg" alt="Фото 10">
+    <div>
+      <h1>Дом • Очаг</h1>
+      <p>Уютный семейный дом на ЮБК, Крым — сдаётся посуточно</p>
     </div>
+  </header>
+
+  <section>
+    <p class="intro">
+      2-й этаж частного дома: 3 спальни, кухня, санузел, Wi-Fi, бассейн, терраса и зелёный двор. 
+      До моря — 10 минут пешком. Идеально для тихого семейного отдыха.
+    </p>
+
+    <div class="gallery">
+      <img src="Photo2.JPG" alt="Вид у бассейна">
+      <img src="Photo3.JPG" alt="Гостиная">
+      <img src="Photo4.JPG" alt="Спальня 1">
+      <img src="Photo5.JPG" alt="Спальня 2">
+      <img src="Photo6.JPG" alt="Кухня">
+      <img src="Photo7.JPG" alt="Санузел">
+      <img src="Photo8.JPG" alt="Беседка">
+      <img src="Photo9.JPG" alt="Сад вечером">
+      <img src="Photo10.JPG" alt="Вид на дом сзади">
+    </div>
+
     <div class="buttons">
-      <a class="whatsapp" href="https://wa.me/79782823254" target="_blank">Написать в WhatsApp</a>
-      <a class="calendar" href="https://calendar.yandex.ru/" target="_blank">Посмотреть свободные даты</a>
+      <a class="whatsapp" href="https://wa.me/79782823254" target="_blank">
+        <!-- WhatsApp SVG icon -->
+        <svg viewBox="0 0 24 24"><path d="M20.5 3.5c-9.9-9.9-26 ..."/></svg>
+        WhatsApp
+      </a>
+      <a class="calendar" href="https://calendar.yandex.ru/" target="_blank">
+        <!-- Calendar SVG icon -->
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 ..."/></svg>
+        Даты
+      </a>
     </div>
   </section>
+
   <footer>© 2025 Дом • Очаг | Южный берег Крыма | +7 978 282-32-54</footer>
+
 </body>
 </html>
