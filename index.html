@@ -2,29 +2,42 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Дом • Очаг — Ялта</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дом • Очаг — аренда в Ялте</title>
   <style>
     body {
-      font-family: -apple-system, sans-serif;
-      background: #fdfdfd;
       margin: 0;
-      padding: 0;
+      font-family: sans-serif;
+      background: #f9f9f9;
       color: #222;
     }
     header {
       background: url('Photo1.JPG') center/cover no-repeat;
-      height: 90vh;
+      height: 100vh;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
       text-align: center;
+      flex-direction: column;
     }
-    header h1 { font-size: 3em; margin: 0; }
-    section { padding: 2em 1.5em; max-width: 900px; margin: auto; }
-    h2 { margin-top: 1.5em; }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.3em;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      margin-top: 0;
+    }
     .slider {
       display: flex;
       overflow-x: auto;
@@ -32,138 +45,146 @@
       gap: 10px;
     }
     .slider img {
-      scroll-snap-align: center;
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    iframe {
       width: 100%;
-      height: 300px;
-      border: none;
-      margin-top: 1em;
+      max-width: 300px;
+      border-radius: 8px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
     }
     .buttons a {
       display: inline-block;
-      margin: 0.5em;
-      padding: 0.75em 1.5em;
-      border-radius: 5px;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
       text-decoration: none;
+      border-radius: 5px;
       font-weight: bold;
     }
-    .whatsapp { background: #25D366; color: white; }
-    .calendar { border: 2px solid #1a73e8; color: #1a73e8; }
-    .accordion {
+    .buttons .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .buttons .calendar {
+      border: 2px solid #0077ff;
+      color: #0077ff;
+    }
+    .map {
+      width: 100%;
+      height: 300px;
       border: none;
-      background: #f1f1f1;
-      padding: 1em;
-      margin-bottom: 1em;
-      border-radius: 6px;
+      border-radius: 8px;
+      margin-top: 20px;
     }
-    details summary {
-      cursor: pointer;
-      font-weight: bold;
-      list-style: none;
+    details {
+      margin-top: 10px;
+    }
+    .review {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     footer {
       text-align: center;
       font-size: 0.9em;
+      padding: 20px;
       color: #777;
-      padding: 2em 1em;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Дом • Очаг</h1>
+    <p>Дом с крытым бассейном и сауной в Ялте</p>
+  </header>
 
-<header>
-  <h1>Дом • Очаг</h1>
-</header>
+  <section>
+    <h2>🌿 О доме</h2>
+    <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном с подогревом, сауной (опция), застеклённой беседкой с барбекю-зоной.</p>
+  </section>
 
-<section>
-  <h2>🌿 О доме</h2>
-  <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном (с подогревом), сауной (опция), застекленной беседкой с зоной барбекю. Только для гостей — без посторонних.</p>
-</section>
+  <section>
+    <h2>🛏 Пространство</h2>
+    <ul>
+      <li>4 комнаты, из них 3 — изолированные</li>
+      <li>Двуспальные кровати 160×200, санузлы, кондиционер, ТВ, Wi-Fi</li>
+      <li>Панорамные виды на Ялту и горы</li>
+      <li>Кухня в застеклённой беседке: плита, посуда, чайник, холодильник, микроволновка</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>🛏 Пространство</h2>
-  <ul>
-    <li>4 комнаты, из них 3 — изолированные</li>
-    <li>В каждой: двуспальная кровать, санузел, ТВ, Wi-Fi, кондиционер</li>
-    <li>Панорамный вид на Ялту и горы</li>
-    <li>Кухня в беседке: плита, посуда, чайник, холодильник и пр.</li>
-  </ul>
-</section>
+  <section>
+    <h2>🏡 Территория</h2>
+    <ul>
+      <li>Крытый подогреваемый бассейн</li>
+      <li>Барбекю-зона и беседка</li>
+      <li>Закрытая парковка (до 3 авто)</li>
+      <li>Видеонаблюдение</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>🏡 Территория</h2>
-  <ul>
-    <li>Крытый подогреваемый бассейн</li>
-    <li>Ландшафтный двор</li>
-    <li>Барбекю-зона</li>
-    <li>Парковка (до 3 авто)</li>
-    <li>Видеонаблюдение</li>
-  </ul>
-</section>
+  <section>
+    <h2>📍 Локация</h2>
+    <p>г. Ялта, ул. Пролетарская, 8В — до центра и пляжа 2 км (5 мин на авто). Поблизости — озеро, водопады, лес, тропы.</p>
+  </section>
 
-<section>
-  <h2>📍 Локация</h2>
-  <p>Ялта, ул. Пролетарская, 8В. До пляжа — 5 минут на авто. Поблизости ущелья, водопады и лесные тропы.</p>
-  <iframe src="https://yandex.ru/map-widget/v1/?ll=34.149540%2C44.508180&z=16&pt=34.149540,44.508180,pm2rdl"></iframe>
-</section>
+  <section>
+    <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.180219%2C44.497002&z=16&text=Ялта%2C%20ул.%20Пролетарская%2C%208В" allowfullscreen></iframe>
+  </section>
 
-<section>
-  <h2>❗️Важно знать</h2>
-  <ul>
-    <li>Только для тихого семейного отдыха</li>
-    <li>До 8 гостей (включая детей с 0 лет)</li>
-    <li>Без вечеринок и шумных компаний</li>
-    <li>Стоимость зависит от сезона и состава</li>
-    <li>Заезд — с 14:00, выезд — до 11:00</li>
-    <li>Бронирование — по предоплате</li>
-  </ul>
-</section>
+  <section>
+    <h2>❗ Важно знать</h2>
+    <ul>
+      <li>Только для спокойного семейного отдыха</li>
+      <li>Максимум 8 гостей (включая детей с 0 лет)</li>
+      <li>Дом не сдаётся для вечеринок</li>
+      <li>Заезд с 14:00, выезд до 11:00</li>
+      <li>Бронирование только по предоплате</li>
+    </ul>
+  </section>
 
+  <section>
+    <h2>⭐ Отзывы гостей</h2>
+    <details open>
+      <summary>1. Алексей — ★★★★★</summary>
+      <div class="review">Отдых получился просто замечательным. Бассейн — топ!</div>
+    </details>
+    <details>
+      <summary>2. Ольга — ★★★★★</summary>
+      <div class="review">Идеальный дом для семьи. Всё чисто и уютно.</div>
+    </details>
+    <details>
+      <summary>3. Инна — ★★★★★</summary>
+      <div class="review">Вернёмся сюда ещё раз. Отличная локация и условия.</div>
+    </details>
+    <details>
+      <summary>4. Юрий — ★★★★★</summary>
+      <div class="review">Очень комфортный отдых. Хозяева — молодцы!</div>
+    </details>
+  </section>
 
-<section>
-  <h2>📸 Галерея</h2>
-  <div class="slider">
-    <img src="Photo2.JPG" alt="Фото 2" />
-    <img src="Photo3.JPG" alt="Фото 3" />
-    <img src="Photo4.JPG" alt="Фото 4" />
-    <img src="Photo5.JPG" alt="Фото 5" />
-    <img src="Photo6.JPG" alt="Фото 6" />
-    <img src="Photo7.JPG" alt="Фото 7" />
-    <img src="Photo8.JPG" alt="Фото 8" />
-    <img src="Photo9.JPG" alt="Фото 9" />
-    <img src="Photo10.JPG" alt="Фото 10" />
-  </div>
-</section>
+  <section>
+    <h2>📷 Галерея</h2>
+    <div class="slider">
+      <img src="Photo2.JPG" alt="Фото 2">
+      <img src="Photo3.JPG" alt="Фото 3">
+      <img src="Photo4.JPG" alt="Фото 4">
+      <img src="Photo5.JPG" alt="Фото 5">
+      <img src="Photo6.JPG" alt="Фото 6">
+      <img src="Photo7.JPG" alt="Фото 7">
+      <img src="Photo8.JPG" alt="Фото 8">
+      <img src="Photo9.JPG" alt="Фото 9">
+      <img src="Photo10.JPG" alt="Фото 10">
+    </div>
+  </section>
 
-<section>
-  <h2>💬 Отзывы гостей</h2>
-  <details class="accordion" open>
-    <summary>+ Екатерина ★★★★★</summary>
-    <p>Очень уютно, чисто и спокойно. Идеально для семьи с детьми. Обязательно приедем снова!</p>
-  </details>
-  <details class="accordion">
-    <summary>+ Артём ★★★★★</summary>
-    <p>Отличная территория, бассейн с подогревом — супер. Всё как на фото. Спасибо за гостеприимство!</p>
-  </details>
-  <details class="accordion">
-    <summary>+ Лидия ★★★★★</summary>
-    <p>Тихий отдых и красивая природа. Удобно, что кухня на улице, но закрыта от ветра.</p>
-  </details>
-</section>
+  <section class="buttons">
+    <a class="whatsapp" href="https://wa.me/79782823254" target="_blank">Написать в WhatsApp</a>
+    <a class="calendar" href="https://calendar.yandex.ru/" target="_blank">Посмотреть даты</a>
+  </section>
 
-<section class="buttons">
-  <a href="https://wa.me/79782823254" class="whatsapp">Написать в WhatsApp</a>
-  <a href="https://calendar.yandex.ru/" class="calendar">Посмотреть даты</a>
-</section>
-
-<footer>
-  © 2025 Дом • Очаг | г. Ялта | +7 978 282-32-54
-</footer>
-
+  <footer>
+    © 2025 Дом • Очаг | Ялта, Крым | +7 978 282-32-54
+  </footer>
 </body>
 </html>
