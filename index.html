@@ -85,12 +85,20 @@ body {
     .gallery {
       display: flex;
       overflow-x: auto;
-      gap: 12px;
-      padding-bottom: 10px;
+      gap: 10px;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0;
+      -webkit-overflow-scrolling: touch;
     }
+
     .gallery img {
-      max-height: 240px;
-      border-radius: 10px;
+      flex: 0 0 auto;
+      width: 85vw; /* ширина картинки — 85% ширины экрана */
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     .map {
       width: 100%;
@@ -267,15 +275,18 @@ body {
   </details>
 </section>
 
-<section class="gallery">
-  <img src="Photo3.JPG" alt="Фото 3" />
-  <img src="Photo4.JPG" alt="Фото 4" />
-  <img src="Photo5.JPG" alt="Фото 5" />
-  <img src="Photo6.JPG" alt="Фото 6" />
-  <img src="Photo7.JPG" alt="Фото 7" />
-  <img src="Photo8.JPG" alt="Фото 8" />
-  <img src="Photo9.JPG" alt="Фото 9" />
-  <img src="Photo10.JPG" alt="Фото 10" />
+<section id="gallery">
+  <h2>📸 Галерея</h2>
+  <div class="gallery">
+    <img src="Photo3.JPG" alt="Фото 3" />
+    <img src="Photo4.JPG" alt="Фото 4" />
+    <img src="Photo5.JPG" alt="Фото 5" />
+    <img src="Photo6.JPG" alt="Фото 6" />
+    <img src="Photo7.JPG" alt="Фото 7" />
+    <img src="Photo8.JPG" alt="Фото 8" />
+    <img src="Photo9.JPG" alt="Фото 9" />
+    <img src="Photo10.JPG" alt="Фото 10" />
+  </div>
 </section>
 
 <section class="buttons">
