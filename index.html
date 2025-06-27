@@ -82,23 +82,28 @@ body {
     ul {
       padding-left: 20px;
     }
+    /* Галерея */
     .gallery {
       display: flex;
       overflow-x: auto;
-      gap: 10px;
+      gap: 12px;
       scroll-snap-type: x mandatory;
-      padding: 10px 0;
       -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
     }
-
     .gallery img {
       flex: 0 0 auto;
-      width: 85vw; /* ширина картинки — 85% ширины экрана */
-      max-width: 400px;
+      width: 80vw;
+      max-width: 320px;
       height: auto;
       border-radius: 12px;
       scroll-snap-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 400px) {
+      .gallery img {
+        width: 90vw;
+      }
     }
     .map {
       width: 100%;
