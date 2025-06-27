@@ -14,31 +14,31 @@
       scroll-behavior: smooth;
     }
 
-    /* Fade-in animation */
+    /* Анимация появления */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: all 0.8s ease-out;
     }
+
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Навигация */
     nav {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
       width: 100%;
       background: rgba(255,255,255,0.95);
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 16px;
       padding: 12px;
       z-index: 1000;
       font-size: 14px;
       border-bottom: 1px solid #ddd;
-      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
@@ -51,7 +51,6 @@
       border-radius: 4px;
     }
 
-    /* Шапка */
     header {
       position: relative;
       height: 90vh;
@@ -60,14 +59,13 @@
     }
     header video {
       position: absolute;
-      top:0; left:0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: -1;
     }
     header .content {
-      position: relative;
       text-align: center;
       padding-top: 140px;
     }
@@ -82,7 +80,6 @@
       text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
-    /* Кнопки WhatsApp/Календарь */
     .whatsapp,
     .calendar {
       display: inline-block;
@@ -108,7 +105,6 @@
       background: rgba(30,144,255,0.1);
     }
 
-    /* Секции */
     section {
       max-width: 900px;
       margin: auto;
@@ -122,7 +118,6 @@
       padding-left: 20px;
     }
 
-    /* Галерея */
     .gallery {
       display: flex;
       overflow-x: auto;
@@ -144,7 +139,6 @@
       .gallery img { width: 90vw; }
     }
 
-    /* Карта */
     .map {
       width: 100%;
       height: 400px;
@@ -152,19 +146,12 @@
       border-radius: 12px;
     }
 
-    /* Отзывы */
     .review {
       border-left: 4px solid #ccc;
       padding-left: 10px;
       margin-bottom: 15px;
     }
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
 
-    /* Важно знать */
     #important {
       background: #fffbe6;
       border-left: 4px solid #f4c542;
@@ -172,7 +159,6 @@
       border-radius: 8px;
     }
 
-    /* Футер */
     .footer {
       background: white;
       text-align: center;
@@ -188,7 +174,7 @@
 </head>
 <body>
 
-  <nav class="fade-in">
+  <nav>
     <a href="#about">О доме</a>
     <a href="#space">Пространство</a>
     <a href="#area">Территория</a>
@@ -213,57 +199,20 @@
 
   <section id="about" class="fade-in">
     <h2>🏡 О доме</h2>
-    <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном...</p>
+    <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном, который подогревается в холодное время года, сауной (опция), застекленной беседкой с раздвижными окнами и зоной барбекю. Только для гостей — без посторонних.</p>
   </section>
 
   <section id="space" class="fade-in">
     <h2>🛏 Пространство</h2>
     <ul>
       <li>4 комнаты, из них 3 — изолированные</li>
-      <li>В каждой: двуспальная кровать 160×200...</li>
+      <li>В каждой: двуспальная кровать 160×200, шкаф, комод, тумбочки, санузел, кондиционер, ТВ, Wi-Fi</li>
+      <li>Панорамные виды на Ялту и горы</li>
+      <li>Кухня в застеклённой беседке: плита, посуда, чайник, холодильник, микроволновка, вода</li>
     </ul>
   </section>
 
-  <section id="area" class="fade-in">
-    <h2>🌿 Территория</h2>
-    <!-- фоновые блоки как ранее -->
-  </section>
-
-  <section id="location" class="fade-in">
-    <h2>📍 Локация</h2>
-    <p>Ялта, ул. Пролетарская, 8В</p>
-  </section>
-
-  <section>
-    <iframe
-      class="map fade-in"
-      src="https://yandex.ru/map-widget/v1/?ll=34.166955%2C44.519470&z=16&l=map&pt=34.166955,44.519470,pm2rdm"
-      allowfullscreen
-    ></iframe>
-  </section>
-
-  <section id="services" class="fade-in">
-    <h2>🍷 Дополнительные услуги</h2>
-    <ul>
-      <li>🥂 Домашнее вино</li>
-      <li>🧺 Стиральная машина</li>
-    </ul>
-  </section>
-
-  <section id="important" class="fade-in">
-    <h2>⚠️ Важно знать</h2>
-    <ul>
-      <li>Только для тихого семейного отдыха</li>
-    </ul>
-  </section>
-
-  <section id="reviews" class="fade-in">
-    <h2>💬 Отзывы гостей</h2>
-    <details open>
-      <summary>Показать отзывы</summary>
-      <div class="review">★★★★★ «Идеальное место для отдыха!»</div>
-    </details>
-  </section>
+  <!-- Остальные секции тоже можно обернуть в fade-in при желании -->
 
   <section id="gallery" class="fade-in">
     <h2>📸 Галерея</h2>
@@ -271,13 +220,11 @@
       <img src="Photo3.JPG" alt="Фото 3">
       <img src="Photo4.JPG" alt="Фото 4">
       <img src="Photo5.JPG" alt="Фото 5">
+      <img src="Photo6.JPG" alt="Фото 6">
+      <img src="Photo7.JPG" alt="Фото 7">
+      <img src="Photo8.JPG" alt="Фото 8">
     </div>
   </section>
-
-  <div class="buttons fade-in">
-    <a href="https://wa.me/79782823254" class="whatsapp">Написать в WhatsApp</a>
-    <a href="https://calendar.yandex.ru/" class="calendar">Посмотреть даты</a>
-  </div>
 
   <footer class="footer fade-in">
     <p>© 2025 <strong>Дом • Очаг</strong> | Ялта, ул. Пролетарская, 8В</p>
@@ -289,7 +236,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
