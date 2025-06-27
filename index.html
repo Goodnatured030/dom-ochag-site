@@ -56,26 +56,22 @@ body {
     header p {
       font-size: 24px;
     }
-    .hero-buttons {
-      margin-top: 24px;
-    }
-    .hero-buttons a {
+}
+    .hero-button {
       display: inline-block;
-      margin: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 16px;
-      text-decoration: none;
-    }
-    .whatsapp {
       background: #25d366;
       color: white;
+      padding: 12px 24px;
+      margin-top: 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
     }
-    .calendar {
-      border: 2px solid #1e90ff;
-      color: #1e90ff;
-      background: none;
-    }
+    .hero-button:hover {
+      background: #1ebc59;
+    } /* ← это нужно! */
     section {
      max-width: 900px;
      margin: auto;
