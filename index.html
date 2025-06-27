@@ -178,18 +178,22 @@
     }
 
     .gallery img {
-      flex: 0 0 auto;
-      width: 80vw;
-      max-width: 320px;
-      height: auto;
-      border-radius: 12px;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+  flex: 0 0 auto;
+  width: 80vw;
+  max-width: 300px;
+  aspect-ratio: 4 / 3; /* <— добавлено */
+  object-fit: cover;   /* <— красиво обрежет по размеру */
+  border-radius: 12px;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
     @media (max-width: 400px) {
-      .gallery img { width: 90vw; }
-    }
+  .gallery img {
+    width: 90vw;
+    aspect-ratio: 4 / 3;
+  }
+}
 
     #important {
       background: #fffbe6;
