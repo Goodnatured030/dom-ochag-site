@@ -4,156 +4,157 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Дом • Очаг — Ялта</title>
-
-  <!-- Inter font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    /* Base resets */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      font-family: -apple-system, sans-serif;
       background: #f5f3ef;
       color: #222;
       scroll-behavior: smooth;
     }
 
-    /* Colors & accents */
-    :root {
-      --accent: #25d366;     /* WhatsApp green */
-      --accent-light: #e6f9ed;
-      --neutral-bg: #f0f0f0;
-      --text-dark: #222;
+    /* Анимации */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background: var(--neutral-bg);
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 24px;
-      padding: 12px 0;
+      gap: 16px;
+      padding: 12px;
       z-index: 1000;
+      font-size: 14px;
       border-bottom: 1px solid #ddd;
     }
+
     nav a {
       text-decoration: none;
-      color: var(--text-dark);
-      font-size: 1rem;
-      padding: 8px 16px;
-      border-radius: 6px;
+      color: #444;
+      padding: 4px 8px;
       transition: background .2s;
     }
+
     nav a:hover {
-      background: var(--accent-light);
+      background: #eee;
+      border-radius: 4px;
     }
 
-    /* Hero section with static background */
     header {
       position: relative;
-      height: 80vh;
-      background: url('hero-still.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      height: 90vh;
+      color: white;
+      overflow: hidden;
     }
-    header::before {
-      content: "";
+
+    header video {
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      top:0; left:0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
+
     header .content {
       position: relative;
-      color: #fff;
-      padding: 0 20px;
+      text-align: center;
+      padding-top: 140px;
     }
+
     header h1 {
-      font-size: 3rem;  /* 48px */
-      margin-bottom: 0.5rem;
+      font-size: 48px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
+
     header p {
-      font-size: 1.5rem; /* 24px */
-      margin-bottom: 1.5rem;
+      font-size: 24px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
-    /* Buttons */
-    .btn {
+    .whatsapp, .calendar {
       display: inline-block;
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
+      padding: 12px 24px;
+      margin: 0 8px;
       border-radius: 8px;
+      font-size: 16px;
       text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn--primary {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-    }
-    .btn--primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all .2s;
     }
 
-    /* Sections */
+    .whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .whatsapp:hover {
+      background: #1ebc59;
+    }
+
+    .calendar {
+      border: 2px solid #1e90ff;
+      color: #1e90ff;
+    }
+
+    .calendar:hover {
+      background: rgba(30,144,255,0.1);
+    }
+
     section {
       max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    h2 {
-      font-size: 2rem;  /* 32px */
-      margin-bottom: 1rem;
-    }
-    h3 {
-      font-size: 1.5rem; /* 24px */
-      margin-bottom: 0.5rem;
-    }
-    p, li {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    ul {
-      padding-left: 1.25rem;
-      list-style: disc;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    /* Area blocks */
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
     .area-block {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      border: 1px solid #ddd;
-      border-radius: 16px;
-      overflow: hidden;
       height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
       margin-bottom: 20px;
+      color: white;
+      position: relative;
+      overflow: hidden;
     }
+
     .area-block::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
-    }
-    .area-block > div {
-      position: relative;
-      text-align: center;
-      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
     }
 
-    /* Map */
+    .area-block > div {
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+
     .map {
       width: 100%;
       height: 400px;
@@ -161,33 +162,39 @@
       border-radius: 12px;
     }
 
-    /* Reviews */
     .review {
       border-left: 4px solid #ccc;
       padding-left: 10px;
       margin-bottom: 15px;
     }
 
-    /* Gallery grid */
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    .gallery {
+      display: flex;
+      overflow-x: auto;
       gap: 12px;
-    }
-    .grid-gallery img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform .2s;
-    }
-    .grid-gallery img:hover {
-      transform: scale(1.03);
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
     }
 
-    /* Important block */
+    .gallery img {
+  flex: 0 0 auto;
+  width: 80vw;
+  max-width: 300px;
+  aspect-ratio: 4 / 3; /* <— добавлено */
+  object-fit: cover;   /* <— красиво обрежет по размеру */
+  border-radius: 12px;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    @media (max-width: 400px) {
+  .gallery img {
+    width: 90vw;
+    aspect-ratio: 4 / 3;
+  }
+}
+
     #important {
       background: #fffbe6;
       border-left: 4px solid #f4c542;
@@ -195,146 +202,160 @@
       border-radius: 8px;
     }
 
-    /* Footer */
     footer {
-      background: #fff;
+      background: white;
       text-align: center;
       padding: 30px 20px;
-      font-size: 0.875rem;
+      font-size: 14px;
       color: #444;
     }
-    footer a {
-      color: var(--text-dark);
-      text-decoration: none;
-    }
 
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      nav { gap: 16px; }
-      header h1 { font-size: 2.5rem; }
-      header p  { font-size: 1.25rem; }
-      .btn { width: 100%; text-align: center; }
+    footer a {
+      color: #000;
+      text-decoration: none;
     }
   </style>
 </head>
-
 <body>
-  <nav>
-    <a href="#about">О доме</a>
-    <a href="#space">Пространство</a>
-    <a href="#area">Территория</a>
-    <a href="#location">Локация</a>
-    <a href="#services">Услуги</a>
-    <a href="#important">Важно знать</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#gallery">Галерея</a>
-  </nav>
 
-  <header>
-    <div class="content">
-      <h1>Дом • Очаг</h1>
-      <p>Коттедж для семейного отдыха в Ялте</p>
-      <a href="https://wa.me/79782823254" class="btn btn--primary">Написать в WhatsApp</a>
-    </div>
-  </header>
+<nav>
+  <a href="#about">О доме</a>
+  <a href="#space">Пространство</a>
+  <a href="#area">Территория</a>
+  <a href="#location">Локация</a>
+  <a href="#services">Услуги</a>
+  <a href="#important">Важно знать</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#gallery">Галерея</a>
+</nav>
 
-  <section id="about">
-    <h2>🏡 О доме</h2>
-    <p>Уютный автономный второй этаж коттеджа с отдельным входом, бассейном, сауной (опция), беседкой и зоной барбекю.</p>
-  </section>
+<header>
+  <video autoplay muted loop playsinline>
+    <source src="6eb9646a-388a-4602-aa8f-f29aa4861489.mov" type="video/mp4" />
+  </video>
+  <div class="content fade-in">
+    <h1>Дом • Очаг</h1>
+    <p>Коттедж для семейного отдыха в Ялте</p>
+    <a href="https://wa.me/79782823254" class="whatsapp">WhatsApp</a>
+    <a href="https://www.avito.ru/yalta/doma_dachi_kottedzhi/4-k._kottedzh_120_m_2656539604?utm_campaign=native&utm_medium=item_page_ios&utm_source=soc_sharing" class="calendar" target="_blank">Смотреть на Авито</a>
+  </div>
+</header>
 
-  <section id="space">
-    <h2>🛏 Пространство</h2>
-    <ul>
-      <li>4 комнаты (3 изолированные)</li>
-      <li>Во всех: кровать 160×200, санузел, кондиционер, ТВ, Wi-Fi</li>
-      <li>Панорамные виды на Ялту и горы</li>
-      <li>Кухня в беседке: плита, посуда, чайник, холодильник</li>
-    </ul>
-  </section>
+<section id="about" class="fade-in">
+  <h2>🏡 О доме</h2>
+  <p>Уютный автономный второй этаж коттеджа с отдельным входом, просторной территорией, крытым бассейном, который подогревается в холодное время года, сауной (опция), застекленной беседкой с раздвижными окнами и зоной барбекю. Только для гостей — без посторонних.</p>
+</section>
 
-  <section id="area">
-    <h2>🌿 Территория</h2>
-    <div class="area-block" style="background-image:url('Photo2.JPG')">
-      <div><h3>🏊 Крытый бассейн</h3><p>Подогрев, подсветка</p></div>
-    </div>
-    <div class="area-block" style="background-image:url('Photo3.JPG')">
-      <div><h3>🌸 Сад</h3><p>Ландшафтный дизайн</p></div>
-    </div>
-    <div class="area-block" style="background-image:url('Photo5.JPG')">
-      <div><h3>🍢 Барбекю-зона</h3><p>Беседка с мангалом</p></div>
-    </div>
-    <div class="area-block" style="background-image:url('Photo4.JPG')">
-      <div><h3>🚗 Парковка</h3><p>На 3 авто</p></div>
-    </div>
-    <div class="area-block" style="background-image:url('Photo6.JPG')">
-      <div><h3>🎥 Безопасность</h3><p>Видеонаблюдение</p></div>
-    </div>
-  </section>
+<section id="space" class="fade-in">
+  <h2>🛏 Пространство</h2>
+  <ul>
+    <li>4 комнаты, из них 3 — изолированные</li>
+    <li>В каждой: двуспальная кровать 160×200, шкаф, комод, тумбочки, санузел, кондиционер, ТВ, Wi-Fi</li>
+    <li>Панорамные виды на Ялту и горы</li>
+    <li>Кухня в застеклённой беседке: плита, посуда, чайник, холодильник, микроволновка, вода</li>
+  </ul>
+</section>
 
-  <section id="location">
-    <h2>📍 Локация</h2>
-    <p>Ялта, ул. Пролетарская, 8В</p>
-    <p>2 км до центра и пляжа (5 мин на авто)</p>
-    <p>Рядом: ущелье Уч-Кош, озеро, водопады, тропы</p>
-    <iframe class="map"
-      src="https://yandex.ru/map-widget/v1/?ll=34.166955%2C44.519470&z=16&l=map&pt=34.166955,44.519470,pm2rdm"
-      loading="lazy"></iframe>
-  </section>
+<section id="area" class="fade-in">
+  <h2>🌿 Территория</h2>
+  <div class="area-block" style="background-image: url('Photo2.JPG')">
+    <div><h3>🏊 Крытый бассейн</h3><p>Подогрев, подсветка</p></div>
+  </div>
+  <div class="area-block" style="background-image: url('Photo3.JPG')">
+    <div><h3>🌸 Сад</h3><p>Ландшафтный дизайн</p></div>
+  </div>
+  <div class="area-block" style="background-image: url('Photo5.JPG')">
+    <div><h3>🍢 Барбекю-зона</h3><p>Беседка с мангалом</p></div>
+  </div>
+  <div class="area-block" style="background-image: url('Photo4.JPG')">
+    <div><h3>🚗 Парковка</h3><p>Для 3 авто</p></div>
+  </div>
+  <div class="area-block" style="background-image: url('Photo6.JPG')">
+    <div><h3>🎥 Безопасность</h3><p>Видеонаблюдение</p></div>
+  </div>
+</section>
 
-  <section id="services">
-    <h2>🍷 Дополнительные услуги</h2>
-    <ul>
-      <li>Стиралка — 300 ₽/загрузка</li>
-      <li>Сауна — 2500 ₽/2 часа</li>
-      <li>Домашнее вино</li>
-      <li>Прогулки по достопримечательностям</li>
-    </ul>
-  </section>
+<section id="location" class="fade-in">
+  <h2>📍 Локация</h2>
+  <p>Ялта, ул. Пролетарская, 8В (44.519481, 34.166924)</p>
+  <p>До центра и пляжа — 2 км, 5 минут на авто</p>
+  <p>Поблизости: ущелье Уч-Кош, озеро, водопады, тропы</p>
+</section>
 
-  <section id="important">
-    <h2>⚠️ Важно знать</h2>
-    <ul>
-      <li>Тихий семейный отдых, макс. 8 гостей</li>
-      <li>Без вечеринок и громкой музыки</li>
-      <li>Заезд с 14:00, выезд до 11:00</li>
-      <li>Бронирование по предоплате</li>
-    </ul>
-  </section>
+<section class="fade-in">
+  <iframe class="map" src="https://yandex.ru/map-widget/v1/?ll=34.166955%2C44.519470&z=16&l=map&pt=34.166955,44.519470,pm2rdm"></iframe>
+</section>
 
-  <section id="reviews">
-    <h2>💬 Отзывы гостей</h2>
-    <details open>
-      <summary>Показать отзывы</summary>
-      <div class="review">★★★★★ «Идеальное место для отдыха!»</div>
-      <div class="review">★★★★★ «Отличный дом, бассейн супер»</div>
-      <div class="review">★★★★★ «Тихо, уютно, добрые хозяева»</div>
-    </details>
-  </section>
+<section id="services" class="fade-in">
+  <h2>🍷 Дополнительные услуги</h2>
+  <ul>
+    <li>🧺 Стиральная машина - 300 руб./1 загрузка</li>
+    <li>🔥 Сауна - 2500 руб./2 часа</li>
+    <li>🥂 Домашнее вино</li>
+    <li>🚶‍♂️ Прогулки по достопримечательностям</li>
+  </ul>
+</section>
 
-  <section id="gallery">
-    <h2>📸 Галерея</h2>
-    <div class="grid-gallery">
-      <img src="Photo7.JPG" alt="Фото 1">
-      <img src="Photo8.JPG" alt="Фото 2">
-      <img src="Photo9.JPG" alt="Фото 3">
-      <img src="Photo10.JPG" alt="Фото 4">
-      <img src="Photo11.JPG" alt="Фото 5">
-      <img src="Photo12.JPG" alt="Фото 6">
-      <img src="Photo13.JPG" alt="Фото 7">
-      <img src="Photo14.JPG" alt="Фото 8">
-      <img src="Photo15.JPG" alt="Фото 9">
-      <img src="Photo16.JPG" alt="Фото 10">
-      <img src="Photo17.JPG" alt="Фото 11">
-      <img src="Photo18.JPG" alt="Фото 12">
-      <img src="Photo19.JPG" alt="Фото 13">
-      <img src="Photo20.JPG" alt="Фото 14">
-    </div>
-  </section>
+<section id="important" class="fade-in">
+  <h2>⚠️ Важно знать</h2>
+  <ul>
+    <li>Только для тихого семейного отдыха</li>
+    <li>Макс. 8 гостей (включая детей)</li>
+    <li>Без вечеринок и шумных компаний</li>
+    <li>Заселение: с 14:00, выезд: до 11:00</li>
+    <li>Бронирование по предоплате</li>
+  </ul>
+</section>
 
-  <footer>
-    <p>© 2025 Дом • Очаг | Ялта, ул. Пролетарская, 8В</p>
-    <p><a href="tel:+79782823254">📞 +7 978 282 32 54</a></p>
-  </footer>
+<section id="reviews" class="fade-in">
+  <h2>💬 Отзывы гостей</h2>
+  <details open>
+    <summary>Показать отзывы</summary>
+    <div class="review">★★★★★ «Идеальное место для отдыха!»</div>
+    <div class="review">★★★★★ «Отличный дом, бассейн супер»</div>
+    <div class="review">★★★★★ «Тихо, уютно, добрые хозяева»</div>
+  </details>
+</section>
+
+<section id="gallery" class="fade-in">
+  <h2>📸 Галерея</h2>
+  <div class="gallery">
+        <img src="Photo7.JPG" alt="Фото 3">
+    <img src="Photo8.JPG" alt="Фото 4">
+    <img src="Photo9.JPG" alt="Фото 5">
+    <img src="Photo10.JPG" alt="Фото 6">
+    <img src="Photo11.JPG" alt="Фото 7">
+    <img src="Photo12.JPG" alt="Фото 8">
+    <img src="Photo13.JPG" alt="Фото 9">
+    <img src="Photo14.JPG" alt="Фото 10">
+    <img src="Photo15.JPG" alt="Фото 11">
+    <img src="Photo16.JPG" alt="Фото 12">
+    <img src="Photo17.JPG" alt="Фото 13">
+    <img src="Photo18.JPG" alt="Фото 14">
+    <img src="Photo19.JPG" alt="Фото 15">
+    <img src="Photo20.JPG" alt="Фото 16">
+  </div>
+</section>
+
+<div class="buttons">
+  <a href="https://wa.me/79782823254" class="whatsapp">Написать в WhatsApp</a>
+  <a href="https://www.avito.ru/yalta/doma_dachi_kottedzhi/4-k._kottedzh_120_m_2656539604?utm_campaign=native&utm_medium=item_page_ios&utm_source=soc_sharing" class="calendar" target="_blank">Смотреть на Авито</a>
+</div>
+
+<footer>
+  <p>© 2025 <strong>Дом • Очаг</strong> | Ялта, ул. Пролетарская, 8В</p>
+  <p><a href="tel:+79782823254">📞 +7 978 282‑32‑54</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
